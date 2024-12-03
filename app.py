@@ -42,10 +42,6 @@ def callback():
 @app.route("/get_playlists")
 @app.route("/get_playlists")
 def get_playlists():
-    if not oauth.validate_token(cache_handler.get_cached_token()):
-        auth_url = oauth.get_authorize_url()
-        return render_template("index.html", auth_url=auth_url)
-
     playlists = sp.current_user_playlists()
     playlists_info = []
     for pl in playlists['items']:
@@ -54,7 +50,6 @@ def get_playlists():
     playlists_html = '<br>'.join([f'{name}: {url}' for name, url in playlists_info])
 
     return playlists_html
-
 
 
 @app.route("/logout")
