@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Circular Std'; /*a name to be used later*/
+    src: url('circular-std.ttf'); /*URL to font*/
+}
+
+
+* {
+    background-color: #121212;
+    font-family: "Circular Std";
+    color: white;
+}
+
+#button_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login_button {
+    background-color: #1fdf64; /* Green */
+    border: none;
+    color: #121212;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 25px;
+    width: 200px;
+    font-family: "Circular Std";
+
+}
+
+#header_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
