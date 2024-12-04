@@ -1,13 +1,40 @@
 @font-face {
-    font-family: 'Circular Std'; /*a name to be used later*/
-    src: url('circular-std.ttf'); /*URL to font*/
+    font-family: 'Circular Std';
+    src: url('circular-std.ttf');
 }
-
 
 * {
     background-color: #121212;
     font-family: "Circular Std";
     color: white;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+#navbar ul li {
+    margin: 0 15px;
+}
+
+#navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#navbar ul li a:hover {
+    color: #1fdf64;
 }
 
 #button_container {
@@ -16,10 +43,15 @@
     align-items: center;
 }
 
+#header_title {
+    margin: 25px 0 0 0;
+}
+
 #login_button {
     background-color: #1fdf64; /* Green */
     border: none;
     color: #121212;
+    margin: 25px;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -28,7 +60,6 @@
     border-radius: 25px;
     width: 200px;
     font-family: "Circular Std";
-
 }
 
 #header_container {

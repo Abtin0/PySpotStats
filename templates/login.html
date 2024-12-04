@@ -1,14 +1,13 @@
 {% extends "base.html" %}
-{% block head %}{% endblock %}
 
 {% block body %}
 <div id="header_container">
     <h1 id="header_title">
-        Welcome to PySpotStats!
+        Login with your Spotify account
     </h1>
 </div>
 <div id="button_container">
-    <a href="{{ g.login }}">
+    <a href="{{ auth_url }}">
         <button id="login_button">
             Login
         </button>

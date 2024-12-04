@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PySpotStats</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div id="header_container">
+            <nav id="navbar">
+                <ul>
+                    <li><a href="{{ g.index }}">Home</a></li>
+                    <li><a href="{{ g.get_playlists }}">Get Playlists</a></li>
+                    <li><a href="{{ g.index }}">Features</a></li>
+                    <li><a href="{{ g.index }}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    {% block body %}{% endblock %}
+</body>
+</html>

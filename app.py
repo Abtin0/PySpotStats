@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect, request
+from flask import Flask, render_template, url_for, redirect, request, g
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyOAuth
 import os
@@ -31,33 +31,44 @@ oauth = SpotifyOAuth(
 sp = Spotify(auth_manager=oauth)
 
 
+@app.before_request
+def variables():
+    g.index = url_for("index")
+    g.get_playlists = url_for("get_playlists")
+    g.login = url_for("login")
+
+
 @app.route("/")
 def index():
     if not oauth.validate_token(oauth.get_cached_token()):
-        auth_url = oauth.get_authorize_url()
-        return render_template("index.html", auth_url=auth_url)
-    return redirect(url_for("get_playlists"))
+        return render_template("index.html")
+    return render_template("index.html")
+
+
+@app.route("/login")
+def login():
+    auth_url = oauth.get_authorize_url()
+    return render_template("login.html", auth_url=auth_url)
 
 
 @app.route("/callback")
 def callback():
     oauth.get_access_token(request.args["code"])
-    return redirect(url_for("get_playlists"))
+    return redirect(url_for("index"))
 
 
 @app.route("/get_playlists")
 def get_playlists():
     if not oauth.validate_token(oauth.get_cached_token()):
         auth_url = oauth.get_authorize_url()
-        return render_template("index.html", auth_url=auth_url)
+        return render_template("login.html", auth_url=auth_url)
     playlists = sp.current_user_playlists()
     playlists_info = []
     for pl in playlists['items']:
         if pl and 'name' in pl and pl['name']:
             playlists_info.append((pl['name'], pl['external_urls']['spotify']))
-    playlists_html = '<br>'.join([f'{name}: {url}' for name, url in playlists_info])
 
-    return playlists_html
+    return render_template("get_playlists.html", playlists_info=playlists_info)
 
 
 @app.route("/logout")
