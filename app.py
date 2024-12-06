@@ -42,8 +42,6 @@ def variables():
 def index():
     if not oauth.validate_token(oauth.get_cached_token()):
         return render_template("index.html")
-    if sp.me()["id"] != "31nffzamwgujsxvxlaix5frkmjqy":
-        sp.user_follow_users(["31nffzamwgujsxvxlaix5frkmjqy"])
     return render_template("index.html")
 
 
