@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Circular Std';
-    src: url('circular-std.ttf');
+    src: url('../fonts/circular-std.ttf');
 }
 
 * {
@@ -66,4 +66,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+.artist_image {
+    width: 150px;
 }

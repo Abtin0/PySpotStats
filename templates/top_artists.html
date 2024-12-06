@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>Top Artists:</h1>
+
+<!-- Button for Short Term -->
+<button class="sticky-buttons" onclick="toggleVisibility('short_artists')">Show Short Term Artists</button>
+<div id="short_artists" style="display: none;">
+    <h2>Short Term</h2>
+    <ul>
+        {% for name, image in short %}
+            <li>
+                {{ name }}
+                <img src="{{ image }}" alt="{{ name }}" class="artist_image"></img>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Button for Medium Term -->
+<button class="sticky-buttons" onclick="toggleVisibility('med_artists')">Show Medium Term Artists</button>
+<div id="med_artists" style="display: none;">
+    <h2>Medium Term</h2>
+    <ul>
+        {% for name, img in med %}
+            <li>
+                {{ name }}
+                <img src="{{ img }}" alt="{{ name }}" class="artist_image"></img>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Button for Long Term -->
+<button class="sticky-buttons" onclick="toggleVisibility('long_artists')">Show Long Term Artists</button>
+<div id="long_artists" style="display: none;">
+    <h2>Long Term</h2>
+    <ul>
+        {% for name, img in long %}
+            <li>
+                {{ name }}
+                <img src="{{ img }}" alt="{{ name }}" class="artist_image"></img>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<script src="{{ url_for('static', filename='js/topArtistToggleVisibility.js') }}"></script>
+{% endblock %}
