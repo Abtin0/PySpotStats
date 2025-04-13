@@ -12,7 +12,7 @@ load_dotenv()
 # Environment variables for Spotify credentials
 client_id = os.getenv("PYSPOTSTATS_CLIENT_ID")
 client_secret = os.getenv("PYSPOTSTATS_CLIENT_SECRET")
-redirect_uri = "http://localhost:5000/callback"
+redirect_uri = "https://pyspotstats.onrender.com/callback"
 scope = "playlist-read-private,streaming,user-read-playback-state,user-top-read,user-library-read"
 
 # Directory to store the cache
