@@ -4,11 +4,30 @@
 <h1>Top Artists:</h1>
 
 <!-- Button for Short Term -->
-<button class="sticky-buttons" onclick="toggleVisibility('short_artists')">Show Short Term Artists</button>
+<button class="sticky-buttons" onclick="toggleVisibility('short_artists')">Short Term</button>
 <div id="short_artists" style="display: none;">
+    <br>
     <h2>Short Term</h2>
     <ul>
         {% for name, image in short %}
+        <div>
+            <li>
+                <p class="artist_name">{{ name }}</p>
+                <br>
+                <img src="{{ image }}" alt="{{ name }}" class="artist_image"></img>
+            </li>
+        </div>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Button for Medium Term -->
+<button class="sticky-buttons" onclick="toggleVisibility('med_artists')">Medium Term</button>
+<div id="med_artists" style="display: none;">
+    <br>
+    <h2>Medium Term</h2>
+    <ul>
+        {% for name, image in med %}
             <li>
                 {{ name }}
                 <img src="{{ image }}" alt="{{ name }}" class="artist_image"></img>
@@ -17,29 +36,16 @@
     </ul>
 </div>
 
-<!-- Button for Medium Term -->
-<button class="sticky-buttons" onclick="toggleVisibility('med_artists')">Show Medium Term Artists</button>
-<div id="med_artists" style="display: none;">
-    <h2>Medium Term</h2>
-    <ul>
-        {% for name, img in med %}
-            <li>
-                {{ name }}
-                <img src="{{ img }}" alt="{{ name }}" class="artist_image"></img>
-            </li>
-        {% endfor %}
-    </ul>
-</div>
-
 <!-- Button for Long Term -->
-<button class="sticky-buttons" onclick="toggleVisibility('long_artists')">Show Long Term Artists</button>
+<button class="sticky-buttons" onclick="toggleVisibility('long_artists')">Long Term</button>
 <div id="long_artists" style="display: none;">
+    <br>
     <h2>Long Term</h2>
     <ul>
-        {% for name, img in long %}
+        {% for name, image in long %}
             <li>
                 {{ name }}
-                <img src="{{ img }}" alt="{{ name }}" class="artist_image"></img>
+                <img src="{{ image }}" alt="{{ name }}" class="artist_image"></img>
             </li>
         {% endfor %}
     </ul>

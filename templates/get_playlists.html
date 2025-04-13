@@ -2,7 +2,11 @@
 
 {% block body %}
     <h1>Playlists</h1>
-    {% for name, url in playlists_info %}
-        <p>{{ name }}: <a href="{{ url }}" target="_blank">{{ url }}</a></p>
+    {% for name, url, image in playlists_info %}
+        <a href="{{ url }}" target="_blank">{{ name }}</a>
+        <br>
+        <img src="{{ image }}" class=playlist_image alt="Playlist image">
+        <br>
+        <br>
     {% endfor %}
 {% endblock %}

@@ -7,7 +7,7 @@
     background-color: #121212;
     font-family: "Circular Std";
     color: white;
-    margin: 0;
+    margin: 5px;
     padding: 0;
 }
 
@@ -47,6 +47,21 @@
     margin: 25px 0 0 0;
 }
 
+button {
+    background-color: #1fdf64; /* Green */
+    border: none;
+    color: #121212;
+    margin: 10px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 25px;
+    width: 200px;
+    font-family: "Circular Std";
+}
+
 #login_button {
     background-color: #1fdf64; /* Green */
     border: none;
@@ -71,4 +86,10 @@
 
 .artist_image {
     width: 150px;
+    border-radius: 50%;
+}
+
+.playlist_image {
+    width: 150px;
+    border-radius: 5%;
 }
